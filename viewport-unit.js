@@ -2,7 +2,10 @@ export function updateViewportUnit() {
   const htmlElement = document.documentElement;
   const width = htmlElement.clientWidth / 100;
   const height = htmlElement.clientHeight / 100;
+  const isHorizontal = window.getComputedStyle(htmlElement).getPropertyValue('writing-mode').startsWith('horizontal');
   Object.entries({
+    '--vi': String(isHorizontal ? width : height),
+    '--vb': String(isHorizontal ? height : width),
     '--vw': String(width),
     '--vh': String(height),
     '--vmin': String(Math.min(width, height)),
@@ -12,6 +15,6 @@ export function updateViewportUnit() {
   });
 }
 
-['DOMContentLoaded', 'resize'].forEach(event => {
+['DOMContentLoaded', 'orientationchange', 'resize'].forEach(event => {
   window.addEventListener(event, updateViewportUnit);
 });

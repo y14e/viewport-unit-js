@@ -2,7 +2,7 @@ export function updateViewportUnit() {
   const htmlElement = document.documentElement;
   const width = htmlElement.clientWidth / 100;
   const height = htmlElement.clientHeight / 100;
-  const isHorizontal = window.getComputedStyle(htmlElement).getPropertyValue('writing-mode').startsWith('horizontal');
+  const isHorizontal = window.getComputedStyle(htmlElement).getPropertyValue('writing-mode').startsWith('h');
   Object.entries({
     '--vw': String(width),
     '--vh': String(height),

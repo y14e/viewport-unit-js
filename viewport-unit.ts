@@ -15,6 +15,6 @@ export function updateViewportUnit(): void {
   });
 }
 
-['DOMContentLoaded', 'orientationchange', 'resize'].forEach(event => {
+['DOMContentLoaded', 'resize'].forEach(event => {
   window.addEventListener(event, updateViewportUnit);
 });

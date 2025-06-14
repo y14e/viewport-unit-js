@@ -10,11 +10,7 @@ export function updateViewportUnit() {
     '--vb': String(horizontal ? height : width),
     '--vmin': String(Math.min(width, height)),
     '--vmax': String(Math.max(width, height)),
-  }).forEach(([name, value]) => {
-    html.style.setProperty(name, value);
-  });
+  }).forEach(([name, value]) => html.style.setProperty(name, value));
 }
 
-['DOMContentLoaded', 'resize'].forEach(event => {
-  window.addEventListener(event, updateViewportUnit);
-});
+['DOMContentLoaded', 'resize'].forEach(event => window.addEventListener(event, updateViewportUnit));

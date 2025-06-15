@@ -1,8 +1,8 @@
 export function updateViewportUnit(): void {
   const html = document.documentElement;
+  const horizontal = /^h/.test(window.getComputedStyle(html).getPropertyValue('writing-mode'));
   const width = html.clientWidth / 100;
   const height = html.clientHeight / 100;
-  const horizontal = /^h/.test(window.getComputedStyle(html).getPropertyValue('writing-mode'));
   Object.entries({
     '--vw': String(width),
     '--vh': String(height),

@@ -13,4 +13,4 @@ export function updateViewportUnit(): void {
   }).forEach(([name, value]) => html.style.setProperty(name, value));
 }
 
-['DOMContentLoaded', 'resize'].forEach(event => window.addEventListener(event, updateViewportUnit));
+// ['DOMContentLoaded', 'resize'].forEach(event => window.addEventListener(event, updateViewportUnit));

@@ -10,7 +10,5 @@ export function updateViewportUnit(): void {
     '--vb': String(horizontal ? height : width),
     '--vmin': String(Math.min(width, height)),
     '--vmax': String(Math.max(width, height)),
-  }).forEach(([name, value]) => html.style.setProperty(name, value));
+  }).forEach(([name, value]) => html.style.setProperty(name, `${value}px`));
 }
-
-// ['DOMContentLoaded', 'resize'].forEach(event => window.addEventListener(event, updateViewportUnit));

@@ -1,4 +1,7 @@
-export function updateViewportUnit() {
+export function updateViewportUnit(root = document.documentElement) {
+  if (!root) {
+    return;
+  }
   const html = document.documentElement;
   const horizontal = /^h/.test(window.getComputedStyle(html).getPropertyValue('writing-mode'));
   const width = html.clientWidth / 100;
@@ -10,5 +13,5 @@ export function updateViewportUnit() {
     '--vb': String(horizontal ? height : width),
     '--vmin': String(Math.min(width, height)),
     '--vmax': String(Math.max(width, height)),
-  }).forEach(([name, value]) => html.style.setProperty(name, `${value}px`));
+  }).forEach(([name, value]) => root.style.setProperty(name, `${value}px`));
 }
